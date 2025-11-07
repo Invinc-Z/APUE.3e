@@ -4,7 +4,7 @@
 
 ### 4.11
 
-In Section 4.22, our version of `ftw` never changes its directory. Modify this routine so that each time it encounters a directory, it uses the `chdir` function to change to that directory, allowing it to use the filename and not the pathname for each call to `lstat`. When all the entries in a directory have been processed, execute `chdir("..")`. Compare the time used by this version and the version in the text.
+**In Section 4.22, our version of `ftw` never changes its directory. Modify this routine so that each time it encounters a directory, it uses the `chdir` function to change to that directory, allowing it to use the filename and not the pathname for each call to `lstat`. When all the entries in a directory have been processed, execute `chdir("..")`. Compare the time used by this version and the version in the text.**
 
 测试时会受到缓存命中的影响，运行程序第二次的时间明显减少，采用的笨方法是开机就运行一个程序，运行完记录时间信息后**重启**再运行另一个程序。
 
