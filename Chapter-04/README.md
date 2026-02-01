@@ -14,7 +14,7 @@ $ ./a.out readme
 readme: symbolic link
 
 $ gcc ex4_1_stat.c -lapue
-$ ./a.out readme 
+$ ./a.out readme
 readme: regular
 ```
 
@@ -27,7 +27,7 @@ readme: regular
 ```shell
 $ umask 0777
 $ touch mask-test
-$ ll mask-test 
+$ ll mask-test
 ---------- 1 zhuang zhuang 0 11月  9 15:13 mask-test
 umask 0002
 ```
@@ -61,7 +61,7 @@ cat: hello: 权限不够
 $ gcc ex4_4.c -lapue
 $ umask
 0002
-$ ./a.out 
+$ ./a.out
 $ ll foo bar
 -rw------- 1 zhuang zhuang 0 11月  9 15:33 bar
 -rw-rw-rw- 1 zhuang zhuang 0 11月  9 15:33 foo
@@ -76,7 +76,7 @@ $ echo 'world' > foo
 $ ll bar foo
 -rw-rw-r-- 1 zhuang zhuang 6 11月  9 15:46 bar
 -rw-rw-r-- 1 zhuang zhuang 6 11月  9 15:46 foo
-$ ./a.out 
+$ ./a.out
 $ ll bar foo
 -rw-rw-r-- 1 zhuang zhuang 0 11月  9 15:47 bar
 -rw-rw-r-- 1 zhuang zhuang 0 11月  9 15:47 foo
@@ -112,13 +112,16 @@ lrwxrwxrwx 1 zhuang zhuang 9 11月  9 15:04 readme -> README.md
 先使用代码[make_sparse_file.c](make_sparse_file.c)生成稀疏文件，再使用[ex4_6.c](ex4_6.c)复制稀疏文件。
 
 ```shell
-$ gcc make_sparse_file.c 
-$ ./a.out 
-$ gcc ex4_6.c 
+$ gcc make_sparse_file.c
+$ ./a.out
+$ gcc ex4_6.c
 $ ./a.out sparse_file dest
-$ ll sparse_file dest 
+$ ll sparse_file dest
 -rw-rw-r-- 1 zhuang zhuang 10485760 11月 14 17:50 dest
 -rw-r--r-- 1 zhuang zhuang 10485760 11月 14 17:49 sparse_file
+$ du sparse_file dest
+44	sparse_file
+44	dest
 ```
 
 ### 4.7
@@ -260,10 +263,10 @@ sys		0m17.888s
 
 1. 路径解析步骤的差异
 
-- **直接使用文件名（相对路径）**：  
+- **直接使用文件名（相对路径）**：
   此时路径是当前工作目录（`cwd`）下的单组件路径（如 `file.txt`）。操作系统解析时，只需从 `cwd` 的 inode 出发，直接查找该文件名对应的目录项（dentry），步骤极少（通常1次目录查找）。
 
-- **使用绝对路径**：  
+- **使用绝对路径**：
   即使文件在当前目录，绝对路径仍需从根目录（`/`）开始，逐级解析每个目录组件（如 `/` → `home` → `user` → `cwd` → `file.txt`）。每个组件都需要查询对应目录的 inode 和目录项，步骤明显更多（组件数量等于路径层级数）。
 
 2. 缓存的影响被削弱
@@ -273,7 +276,7 @@ sys		0m17.888s
 3. 实际开销的量级
 
 - 单组件相对路径的解析几乎是“零额外开销”，直接基于 `cwd` 定位。
-- 绝对路径的解析开销与路径层级成正比（例如，5级目录的绝对路径比相对路径多4次目录项查询）。  
+- 绝对路径的解析开销与路径层级成正比（例如，5级目录的绝对路径比相对路径多4次目录项查询）。
   这种差异在单次调用中可能仅为几微秒，但在**高频调用场景**（如遍历目录下大量文件时反复调用 `lstat`）中，累积差异可能变得明显。
 
 > `lstat` 处理绝对路径和相对路径的速度差异通常可以忽略不计，实际性能主要取决于：
@@ -322,7 +325,7 @@ sys		0m17.888s
 
 ```shell
 $ gcc ex4_16.c -lapue
- ./a.out 
+ ./a.out
 getcwd failed, size = 4096: Numerical result out of range
 getcwd failed, size = 4196: Numerical result out of range
 ...

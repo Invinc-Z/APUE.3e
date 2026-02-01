@@ -63,8 +63,9 @@ fd = 3，四个文件描述符指向相同的文件表项。这种情况下，�
 **The Bourne shell, Bourne-again shell, and Korn shell notation**
 	**`digit1>&digit2`**
 **says to redirect descriptor digit1 to the same file as descriptor digit2. What is the difference between the two commands shown below? (Hint: The shells process their command lines from left to right.)**
-	`./a.out > outfile 2>&1`
-	`./a.out 2>&1 > outfile`
+
+	./a.out > outfile 2>&1
+	./a.out 2>&1 > outfile
 
 `./a.out > outfile 2>&1` 先将标准输出重定向到outfile，然后将标准错误重定向到标准输出。结果是标准输出和标准错误都输出到outfile。
 

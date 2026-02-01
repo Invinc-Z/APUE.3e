@@ -12,7 +12,7 @@ sudo cp ./include/apue.h /usr/include/
 sudo cp ./lib/libapue.a /usr/local/lib/
 ```
 
-APUE主页给的[源码](http://www.apuebook.com/code3e.html)在Ubuntu环境下make会出错，本仓库已作出修改。主要修改如下：
+APUE主页给的[源码](http://www.apuebook.com/code3e.html)在Ubuntu环境下 `make` 会出错，本仓库已作出修改。主要修改如下：
 
 - 在`db/Makefile`中的`-dylib` 是 macOS 系统链接器的选项，要删除掉。具体是将`db/Makefile`第12行
 
@@ -38,7 +38,9 @@ APUE主页给的[源码](http://www.apuebook.com/code3e.html)在Ubuntu环境下m
 
 ### 其他操作系统
 
-本仓库代码已修改为适应linux系统，其他操作系统需下载源码或将上述修改恢复，源码下载地址在[这里](http://www.apuebook.com/code3e.html)。
+本仓库代码已修改为适应 Linux 系统，其他操作系统需下载源码或将上述修改恢复，源码下载地址在[这里](http://www.apuebook.com/code3e.html)。
+
+### 编译源代码并安装头文件和库文件
 
 ```shell
 cd apue.3e
@@ -54,6 +56,6 @@ sudo cp ./lib/libapue.a /usr/local/lib/
 ## 编译
 
 ```she
-gcc filename.c -lapue
+gcc <filename.c> -lapue
 ```
 
