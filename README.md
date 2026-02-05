@@ -9,3 +9,5 @@ The source code and my personal exercise solutions for Advanced Programming in t
 - [Chapter 2: UNIX Standardization and Implementations](Chapter-02/)
 - [Chaptere 3: File I/O](Chapter-03/)
 - [Chapter 4: Files and Directories](Chapter-04/)
+- [Chapter 5: Standard I/O Library](Chapter-05/)
+- [Chapter 6: System Data Files and Information](Chapter-06/)
