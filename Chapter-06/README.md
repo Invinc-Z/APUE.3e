@@ -47,7 +47,7 @@ After it wraps around, what happens?**
 
 `time_t` represents the number of seconds since 1970-01-01 00:00:00 UTC.
 
-If `time_t` is a signed 32-bit integer, the maximum value is $2^{31} − 1$ = 2147483647 seconds,
+If `time_t` is a signed 32-bit integer, the maximum value is $2^{31} − 1 = 2147483647$ seconds,
 which corresponds to 2038-01-19 03:14:07 UTC.
 
 After it wraps around, the value overflows to $−2^{31}$,
