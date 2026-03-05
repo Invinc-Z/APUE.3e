@@ -11,3 +11,8 @@ The source code and my personal exercise solutions for Advanced Programming in t
 - [Chapter 4: Files and Directories](Chapter-04/)
 - [Chapter 5: Standard I/O Library](Chapter-05/)
 - [Chapter 6: System Data Files and Information](Chapter-06/)
+- [Chapter 7: Process Environment](Chapter-07/)
+- [Chapter 8: Process Control](Chapter-08/)
+- [Chapter 9: Process Relationships](Chapter-09/)
+- [Chapter 10: Signals](Chapter-10/)
+- [Chapter 11: Threads](Chapter-11/)
